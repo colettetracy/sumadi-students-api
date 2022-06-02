@@ -61,8 +61,8 @@ studentRoutes.route(`/api/${version}/student/:id`).get(token.verifyToken, async 
 
 studentRoutes.route(`/api/${version}/student/`).post(token.verifyToken, async function(req, res) {
     try {
-        let { firstName, lastName, birthdate, email, address } = req.body;
-        if (!(firstName && lastName && birthdate && email && address)) {
+        let { firstName, lastName, birthdate, email, address, gender } = req.body;
+        if (!(firstName && lastName && birthdate && email && address && gender)) {
             res.status(400).send({
                 message: "All input is required"
             });
